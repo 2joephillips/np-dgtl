@@ -1,0 +1,32 @@
+---
+import Welcome from '../components/Welcome.astro';
+import Layout from '../layouts/Layout.astro';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+  <main id="container" class="p-10">
+    <section id="hero">
+      <h1 class="text-4xl font-bold uppercase">say hello. 👋</h1>
+      <p class="max-w-md mt-4 uppercase">
+        We'd love to hear from you! Whether you have questions, feedback, or just want to connect,
+        feel free to reach out to us.
+      </p>  
+    </section>
+
+    <section id="links" class="mt-8 flex flex-row gap-4 justify-end">
+      <div id="social" class="flex flex-col">
+        <h2 class="mr-4 uppercase">Social</h2>
+        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="mr-4">Instagram</a>
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="">LinkedIn</a>
+        <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="">YouTube</a>
+      </div>
+       <div id="social" class="flex flex-col ">
+        <h2 class="mr-4 uppercase">contact</h2>
+        <a href="mailto:hello@npdgtl.com" target="_blank" rel="noopener noreferrer" class="mr-4">hello@npdgtl.com</a>
+        <a href="tel:XXX-XXXX" target="_blank" rel="noopener noreferrer" class="">XXX-XXXX</a>
+      </div>
+  </main>
+</Layout>
