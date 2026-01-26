@@ -47,7 +47,7 @@ const { projects } = Astro.props as Props;
             </div>
             <a href={`/projects/${p.slug}`} class="group">
               <div class="flex flex-row w-full h-full justify-end items-center">
-                <span
+                <button
                   class="btn btn-circle"
                   aria-label={`View project ${p.data.title}`}
                 >
@@ -67,7 +67,7 @@ const { projects } = Astro.props as Props;
                       />
                     </g>
                   </svg>
-                </span>
+                </button>
               </div>
             </a>
           </div>
