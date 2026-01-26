@@ -1,62 +1,27 @@
 ---
-import background from '../assets/background.svg';
+import Info from "../components/Info.astro";
+import HeroVideo from "../components/HeroVideo.astro";
+import { getCollection } from "astro:content";
+import ProjectsGrid from "../components/Projects/ProjectsGrid.astro";
+
+const projects = await getCollection("projects");
 ---
 
 <main id="welcome-container">
-	<!-- SECTION 1: Video -->
-	<section class="py-12">
-		<div class="container mx-auto px-4 max-w-4xl bg-black">
-			<iframe
-				id="video"
-				class="w-full aspect-video rounded-lg bg-black"
-				src="https://www.youtube.com/embed/9tNduYYiYbw?si=Bv3bUFKaLP8uJU7m&autoplay=1&mute=1&loop=1&playlist=9tNduYYiYbw"
-				title="YouTube video player"
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-				allowfullscreen></iframe>
-		</div>
-	</section>
+  <!-- SECTION 1: Video -->
+  <HeroVideo />
 
-	<!-- SECTION 2: Sticky Text + Scrolling Images -->
-	<section class="relative p-5">
-		<div class="sticky top-0 h-[70vh] z-10 flex flex-col justify-between">
-    <h2 class="absolute top-0 left-0 text-3xl md:text-4xl font-bold uppercase p-4 ">
-      photography. videography.
-      <br />
-      digital marketing.
-    </h2>
-    <h2 class="absolute bottom-0 right-0 text-3xl md:text-4xl font-bold uppercase p-4 ">
-      in durham
-    </h2>
-		</div>
+  <!-- SECTION 2: Sticky Text + Scrolling Images -->
+  <Info />
 
- <div class="mt-[10vh] space-y-20 md:space-y-40">
-    <!-- First Image: mostly right -->
- 		<div class="relative w-full flex justify-end">
-      <div class="aspect-square w-full sm:w-3/4 md:w-2/3 lg:w-1/2">
-        <img src="/images/running1.jpg" class="w-full h-full object-cover rounded-lg" />
-      </div>
-    </div>
-
-
-    <!-- Second Image: slightly left -->
-    <div class="relative w-full flex justify-end">
-      <div class="aspect-square w-full sm:w-3/4 md:w-2/3 lg:w-1/2 sm:-translate-x-8 md:-translate-x-16 lg:-translate-x-32">
-        <img src="/images/running2.jpg" class="w-full h-full object-cover rounded-lg" />
-      </div>
-    </div>
-
-    <!-- Third Image: more left -->
-    <div class="relative w-full flex justify-end">
-      <div class="aspect-square w-full sm:w-3/4 md:w-2/3 lg:w-1/2 sm:-translate-x-16 md:-translate-x-32 lg:-translate-x-48">
-        <img src="/images/running3.jpg" class="w-full h-full object-cover rounded-lg" />
-      </div>
-    </div>
-  </div>
-	</section>
+  <!-- SECTION 3: Projects Grid -->
+  <ProjectsGrid projects={projects} />
 </main>
 
 <style>
-	#welcome-container {
-		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
-	}
+  #welcome-container {
+    font-family:
+      Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial,
+      sans-serif;
+  }
 </style>

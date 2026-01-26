@@ -1,0 +1,73 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  projects: CollectionEntry<"projects">[];
+}
+
+const { projects } = Astro.props as Props;
+---
+
+<style>
+  .rotate-svg {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+  }
+
+  button:hover .rotate-svg {
+    transform: rotate(90deg);
+  }
+</style>
+
+<section class="py-20">
+  <div class="flex flex-row justify-between">
+    <h2 class="text-4xl font-bold mb-10">My Work</h2>
+    <button class="btn rounded-2xl">All Projects</button>
+  </div>
+
+  <div class="flex flex-col decoration-gray-900">
+    {
+      projects.slice(0, 5).map((p) => (
+        <div class="flex flex-row w-full px-5">
+          <a href={`/projects/${p.slug}`} class="group">
+            <div class=" overflow-hidden">
+              <img
+                src={p.data.thumbnail}
+                class="aspect-9/16 h-100 w-75 object-covertransition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+          </a>
+          <div class="flex flex-col ml-5 w-full py-3">
+            <h3 class="text-4xl  md:text-6xl font-semibold">{p.data.title}</h3>
+            <div class="grid grid-cols-2">
+              <p class="text text-gray-600">{p.data.date}</p>
+              <p class="text text-gray-600">{p.data.type}</p>
+              <p class="text text-gray-600">{p.data.company}</p>
+              <p class="text text-gray-600">{p.data.location}</p>
+            </div>
+            <div class="flex flex-row w-full h-full justify-end items-center">
+              <button class="btn btn-circle">
+                <svg
+                  class="rotate-svg"
+                  data-bbox="65 42 70.708 116.667"
+                  viewBox="0 0 200 200"
+                  height="200"
+                  width="200"
+                  xmlns="http://www.w3.org/2000/svg"
+                  data-type="shape"
+                >
+                  <g>
+                    <path
+                      d="m65 77.35 5.892 5.892 25.3-25.292v100.717h8.333V57.95l25.292 25.292 5.891-5.892L100.358 42 65 77.35Z"
+                      fill-rule="evenodd"
+                    />
+                  </g>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
