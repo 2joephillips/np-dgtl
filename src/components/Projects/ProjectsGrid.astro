@@ -45,26 +45,31 @@ const { projects } = Astro.props as Props;
               <p class="text text-gray-600">{p.data.company}</p>
               <p class="text text-gray-600">{p.data.location}</p>
             </div>
-            <div class="flex flex-row w-full h-full justify-end items-center">
-              <button class="btn btn-circle">
-                <svg
-                  class="rotate-svg"
-                  data-bbox="65 42 70.708 116.667"
-                  viewBox="0 0 200 200"
-                  height="200"
-                  width="200"
-                  xmlns="http://www.w3.org/2000/svg"
-                  data-type="shape"
+            <a href={`/projects/${p.slug}`} class="group">
+              <div class="flex flex-row w-full h-full justify-end items-center">
+                <span
+                  class="btn btn-circle"
+                  aria-label={`View project ${p.data.title}`}
                 >
-                  <g>
-                    <path
-                      d="m65 77.35 5.892 5.892 25.3-25.292v100.717h8.333V57.95l25.292 25.292 5.891-5.892L100.358 42 65 77.35Z"
-                      fill-rule="evenodd"
-                    />
-                  </g>
-                </svg>
-              </button>
-            </div>
+                  <svg
+                    class="rotate-svg"
+                    data-bbox="65 42 70.708 116.667"
+                    viewBox="0 0 200 200"
+                    height="200"
+                    width="200"
+                    xmlns="http://www.w3.org/2000/svg"
+                    data-type="shape"
+                  >
+                    <g>
+                      <path
+                        d="m65 77.35 5.892 5.892 25.3-25.292v100.717h8.333V57.95l25.292 25.292 5.891-5.892L100.358 42 65 77.35Z"
+                        fill-rule="evenodd"
+                      />
+                    </g>
+                  </svg>
+                </span>
+              </div>
+            </a>
           </div>
         </div>
       ))
