@@ -1,8 +1,7 @@
 ---
 title: "Church Marketing and Launch"
-date: "2026-01-01"
+date: "2022-12-01 - 2023-03-15"
 location: "Durham, NC"
 company: "Our Redemption Church"
-type: "Website Redesign"
-thumbnail: "/assets/projects/project_1_Our_Redemption_Church/cover_image/729A1250.jpg"
+thumbnail: "../../assets/projects/project_1_orc/cover_image/729A1250.jpg"
 ---

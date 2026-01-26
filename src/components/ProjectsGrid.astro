@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
@@ -20,20 +21,16 @@ const { projects } = Astro.props as Props;
 </style>
 
 <section class="py-20">
-  <div class="flex flex-row justify-between">
-    <h2 class="text-4xl font-bold mb-10">My Work</h2>
-    <button class="btn rounded-2xl">All Projects</button>
-  </div>
-
   <div class="flex flex-col decoration-gray-900">
     {
       projects.slice(0, 5).map((p) => (
         <div class="flex flex-row w-full px-5">
           <a href={`/projects/${p.slug}`} class="group">
             <div class=" overflow-hidden">
-              <img
+              <Image
                 src={p.data.thumbnail}
-                class="aspect-9/16 h-100 w-75 object-covertransition-transform duration-300 group-hover:scale-105"
+                alt={p.data.title}
+                class="aspect-9/16 h-100 w-75 object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>
           </a>
@@ -41,11 +38,10 @@ const { projects } = Astro.props as Props;
             <h3 class="text-4xl  md:text-6xl font-semibold">{p.data.title}</h3>
             <div class="grid grid-cols-2">
               <p class="text text-gray-600">{p.data.date}</p>
-              <p class="text text-gray-600">{p.data.type}</p>
               <p class="text text-gray-600">{p.data.company}</p>
               <p class="text text-gray-600">{p.data.location}</p>
             </div>
-            <a href={`/projects/${p.slug}`} class="group">
+            {/* <a href={`/projects/${p.slug}`} class="group">
               <div class="flex flex-row w-full h-full justify-end items-center">
                 <button
                   class="btn btn-circle"
@@ -69,7 +65,7 @@ const { projects } = Astro.props as Props;
                   </svg>
                 </button>
               </div>
-            </a>
+            </a> */}
           </div>
         </div>
       ))

@@ -1,7 +1,7 @@
 ---
-title: "Test Project"
+title: "Title "
 date: "2026-01-01"
 location: "Durham, NC"
-type: "Website Redesign"
-thumbnail: "/assets/projects/project-2/thumbnail.jpg"
+company: "CSU Athletics"
+thumbnail: "../../assets/projects/project_2_csu_athletics/cover_image/_MG_0158.jpg"
 ---
