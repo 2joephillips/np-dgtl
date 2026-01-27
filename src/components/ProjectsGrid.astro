@@ -13,10 +13,16 @@ const { projects } = Astro.props as Props;
   .rotate-svg {
     transform: rotate(180deg);
     transition: transform 0.3s ease;
+    fill: black;
+    background: white;
+    border-radius: 50%;
+    padding: 8px;
   }
 
   button:hover .rotate-svg {
     transform: rotate(90deg);
+    fill: white;
+    background: black;
   }
 </style>
 
@@ -34,8 +40,8 @@ const { projects } = Astro.props as Props;
               />
             </div>
           </a>
-          <div class="flex flex-col ml-5 w-full py-3 justify-between">
-            <div class="flex flex-col gap-2">
+          <div class="flex flex-col ml-5 w-full py-3 justify-around">
+            <div class="flex flex-col gap-1">
               <h3 class="text-4xl md:text-6xl font-semibold">{p.data.title}</h3>
               <div class="grid grid-cols-2">
                 <p class="text text-gray-600">{p.data.company}</p>
@@ -45,31 +51,27 @@ const { projects } = Astro.props as Props;
             </div>
             <a
               href={`/projects/${p.slug}`}
-              class="group overflow-hidden align-bottom "
+              class="group overflow-hidden self-end"
             >
-              <div class="flex flex-row w-full h-full justify-end items-center">
-                <button
-                  class="btn btn-circle"
-                  aria-label={`View project ${p.data.title}`}
+              <button
+                class="btn btn-circle h-12 w-12 md:h-16 md:w-16 lg:h-20 lg:w-20"
+                aria-label={`View project ${p.data.title}`}
+              >
+                <svg
+                  class="rotate-svg w-full h-full"
+                  data-bbox="65 42 70.708 116.667"
+                  viewBox="0 0 200 200"
+                  xmlns="http://www.w3.org/2000/svg"
+                  data-type="shape"
                 >
-                  <svg
-                    class="rotate-svg"
-                    data-bbox="65 42 70.708 116.667"
-                    viewBox="0 0 200 200"
-                    height="200"
-                    width="200"
-                    xmlns="http://www.w3.org/2000/svg"
-                    data-type="shape"
-                  >
-                    <g>
-                      <path
-                        d="m65 77.35 5.892 5.892 25.3-25.292v100.717h8.333V57.95l25.292 25.292 5.891-5.892L100.358 42 65 77.35Z"
-                        fill-rule="evenodd"
-                      />
-                    </g>
-                  </svg>
-                </button>
-              </div>
+                  <g>
+                    <path
+                      d="m65 77.35 5.892 5.892 25.3-25.292v100.717h8.333V57.95l25.292 25.292 5.891-5.892L100.358 42 65 77.35Z"
+                      fill-rule="evenodd"
+                    />
+                  </g>
+                </svg>
+              </button>
             </a>
           </div>
         </div>
