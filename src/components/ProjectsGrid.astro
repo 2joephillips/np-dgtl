@@ -20,11 +20,11 @@ const { projects } = Astro.props as Props;
   }
 </style>
 
-<section class="py-20">
+<section class="py-20 prose">
   <div class="flex flex-col decoration-gray-900">
     {
       projects.slice(0, 5).map((p) => (
-        <div class="flex flex-row w-full px-5">
+        <div class="flex flex-row w-full px-5 items-stretch">
           <a href={`/projects/${p.slug}`} class="group">
             <div class=" overflow-hidden">
               <Image
@@ -34,14 +34,19 @@ const { projects } = Astro.props as Props;
               />
             </div>
           </a>
-          <div class="flex flex-col ml-5 w-full py-3">
-            <h3 class="text-4xl  md:text-6xl font-semibold">{p.data.title}</h3>
-            <div class="grid grid-cols-2">
-              <p class="text text-gray-600">{p.data.date}</p>
-              <p class="text text-gray-600">{p.data.company}</p>
-              <p class="text text-gray-600">{p.data.location}</p>
+          <div class="flex flex-col ml-5 w-full py-3 justify-between">
+            <div class="flex flex-col gap-2">
+              <h3 class="text-4xl md:text-6xl font-semibold">{p.data.title}</h3>
+              <div class="grid grid-cols-2">
+                <p class="text text-gray-600">{p.data.company}</p>
+                <p class="text text-gray-600 text-right">{p.data.date}</p>
+                <p class="text text-gray-600">{p.data.location}</p>
+              </div>
             </div>
-            {/* <a href={`/projects/${p.slug}`} class="group">
+            <a
+              href={`/projects/${p.slug}`}
+              class="group overflow-hidden align-bottom "
+            >
               <div class="flex flex-row w-full h-full justify-end items-center">
                 <button
                   class="btn btn-circle"
@@ -65,7 +70,7 @@ const { projects } = Astro.props as Props;
                   </svg>
                 </button>
               </div>
-            </a> */}
+            </a>
           </div>
         </div>
       ))
