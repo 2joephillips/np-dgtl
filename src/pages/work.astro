@@ -7,8 +7,14 @@ const projects = await getCollection("projects");
 ---
 
 <Layout>
-  <div class="flex flex-row mb-6">
+  <div class="flex flex-row m-2 items-center">
+    <img
+      src={arrow.src}
+      alt="Back Arrow"
+      class="rotate-180 aspect-square w-10"
+    />
     <h1 class="text-4xl font-bold uppercase text-left my-1 mx-2">INDEX</h1>
   </div>
+
   <ProjectsGrid projects={projects} />
 </Layout>
