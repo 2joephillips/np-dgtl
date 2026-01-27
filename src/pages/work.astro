@@ -1,0 +1,14 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import ProjectsGrid from "../components/ProjectsGrid.astro";
+import arrow from "../assets/icons/arrow.svg";
+const projects = await getCollection("projects");
+---
+
+<Layout>
+  <div class="flex flex-row mb-6">
+    <h1 class="text-4xl font-bold uppercase text-left my-1 mx-2">INDEX</h1>
+  </div>
+  <ProjectsGrid projects={projects} />
+</Layout>
