@@ -2,6 +2,8 @@
 import "../styles/global.css";
 import icon from "../assets/icons/logo.svg";
 import Nav from "../components/Nav.astro";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+import { Fancybox } from "@fancyapps/ui";
 ---
 
 <!doctype html>
@@ -94,6 +96,9 @@ import Nav from "../components/Nav.astro";
         </p>
       </div>
     </footer>
+    <script is:inline>
+      Fancybox.bind("[data-fancybox='gallery']", {});
+    </script>
   </body>
 </html>
 

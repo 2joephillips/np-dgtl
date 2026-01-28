@@ -8,9 +8,10 @@ const projects = defineCollection({
       date: z.string(),
       location: z.string(),
       company: z.string().optional(),
-      thumbnail: image(), // <-- CORRECT FOR ASTRO 5
+      thumbnail: image(),
       gallery: z.array(image()).optional(),
       summary: z.string().optional(),
+      projectFolder: z.string(),
     }),
 });
 
