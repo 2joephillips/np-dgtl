@@ -6,7 +6,11 @@ import { getCollection } from "astro:content";
 import ProjectsGrid from "../components/ProjectsGrid.astro";
 
 const projects = await getCollection("projects");
-const featuredProjects = projects.slice(0, 5);
+const featuredProjects = projects
+  .sort((a, b) => {
+    return b.data.order - a.data.order;
+  })
+  .slice(0, 4);
 ---
 
 <Layout>
@@ -23,6 +27,5 @@ const featuredProjects = projects.slice(0, 5);
       <button class="uppercase underline cursor-pointer"> All Projects </button>
     </a>
   </div>
-
   <ProjectsGrid projects={featuredProjects} />
 </Layout>
