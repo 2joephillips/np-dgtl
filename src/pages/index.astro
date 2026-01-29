@@ -4,7 +4,7 @@ import Info from "../components/Info.astro";
 import HeroVideo from "../components/HeroVideo.astro";
 import { getCollection } from "astro:content";
 import ProjectsGrid from "../components/ProjectsGrid.astro";
-
+import ArrowBtn from "../components/ArrowBtn.astro";
 const projects = await getCollection("projects");
 const featuredProjects = projects
   .sort((a, b) => {
@@ -22,9 +22,10 @@ const featuredProjects = projects
 
   <!-- SECTION 3: Projects Grid -->
   <div class="flex flex-row justify-between items-center mx-2">
-    <p class="uppercase">My Work</p>
+    <p class="uppercase font-bold text-xl">My Work</p>
+
     <a href="/projects/">
-      <button class="uppercase cursor-pointer"> All Projects </button>
+      <ArrowBtn label="All Projects" />
     </a>
   </div>
   <ProjectsGrid projects={featuredProjects} />

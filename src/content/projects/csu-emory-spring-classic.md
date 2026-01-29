@@ -1,6 +1,6 @@
 ---
 title: "CSU X Emory Spring Classic"
-date: "2026-01-01"
+date: "Need a Date!"
 location: "Atlanta, GA"
 company: "CSU Athletics"
 thumbnail: "../../assets/projects/csu-emory-spring-classic/cover_image/_MG_0158.jpg"
