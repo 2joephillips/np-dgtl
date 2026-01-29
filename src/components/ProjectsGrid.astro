@@ -55,7 +55,7 @@ const { projects } = Astro.props as Props;
                   <h3 class="text-gray-600 text-lg lg:text-2xl font-medium">
                     {p.data.location}
                   </h3>
-                  <p class="text-gray-600 text-lg lg:text-2xl">{p.data.date}</p>
+                  <h3 class="text-gray-600 text-lg lg:text-1xl">{p.data.date}</h3>
                 </div>
               </div>
 
@@ -64,12 +64,12 @@ const { projects } = Astro.props as Props;
                   <h3 class="text-gray-600 text-lg md:text-xl font-medium">
                     {p.data.company}
                   </h3>
-                  <h3 class="text-gray-600 text-lg md:text-xl font-medium">
+                  <h3 class="text-gray-600 text-lg md:text-xl font-medium" >
                     {p.data.location}
                   </h3>
-                  <p class="text-gray-600 text-lg md:text-xl hidden sm:block">
+                  <h3 class="text-gray-600 text-lg md:text-lg hidden sm:block">
                     {p.data.date}
-                  </p>
+                  </h3>
                 </div>
 
                 <div class="hidden lg:block flex-1 " />
