@@ -1,17 +1,32 @@
 @import "tailwindcss";
 
-
 @layer base {
+  html {
+    height: 100%;
+  }
+
   body {
-    font-family: 'Inconsolata','Montserrat', sans-serif;
+    font-family: "Inconsolata", "Montserrat", sans-serif;
     margin: 0;
     padding: 0;
+    margin: 0;
+    width: 100%;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
-   h2 {
-      font-family: 'Space Grotesk', sans-serif;
-    }
-    h3 {
-      font-family: 'Heebo', sans-serif;
-    }
+  h2 {
+    font-family: "Space Grotesk", sans-serif;
+  }
+  h3 {
+    font-family: "Heebo", sans-serif;
+  }
+  footer {
+    margin-top: auto;
+  }
+  #sidebar {
+    background: whitesmoke;
+    font-family: "Space Grotesk", sans-serif;
+  }
 }
