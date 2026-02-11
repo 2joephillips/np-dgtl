@@ -26,12 +26,22 @@ import icon from "../assets/icons/logo.svg";
       </h2>
     </div>
     <hr class="w-full border-t border-gray-400 mb-4 align-baseline" />
-    <p class="flex justify-end items-center text-sm uppercase gap-2">
-      &copy; {new Date().getFullYear()} NP-DGTL Durham <img
-        src={icon.src}
-        alt="NP DGTL Logo"
-        class="h-10 rotate-25"
-      /> North Carolina
+    <p class="inline-flex justify-end items-center text-sm gap-2">
+      &copy; {new Date().getFullYear()}
+
+      <!-- NP-DGTL Logo -->
+      <span
+        class="inline-flex items-center text-[12px] font-['Space_Grotesk'] font-bold tracking-[-0.02em]"
+      >
+        <span class="text-[#1F1F1F]">np</span>
+        <span class="text-[#8A8A8A] mx-1">-</span>
+        <span class="text-[#1F1F1F]">dgtl</span>
+      </span>
+
+      <!-- Location Text & Icon -->
+      <span class="inline-flex items-center gap-1 uppercase">
+        Durham, North Carolina
+      </span>
     </p>
   </div>
 </footer>

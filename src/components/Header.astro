@@ -4,10 +4,18 @@ import Nav from "../components/Nav.astro";
 ---
 
 <header class="sticky flex items-center justify-between px-8 py-4 shadow-md">
-  <div class="flex items-center gap-2">
+  <!-- <div class="flex items-center gap-2">
     <img src={icon.src} alt="NP DGTL Logo" class="h-20" />
+  </div> -->
+  <!-- <h2 class="text-3xl font-bold">NP DGTL</h2> -->
+  <div
+    class="inline-flex items-center text-[56px] font-['Space_Grotesk'] font-bold tracking-[-0.02em]"
+  >
+    <span class="text-[#1F1F1F]">np</span>
+    <span class="text-[#8A8A8A] mx-1">-</span>
+    <span class="text-[#1F1F1F]">dgtl</span>
   </div>
-  <h2 class="text-3xl font-bold">NP DGTL</h2>
+
   <nav>
     <button id="menu-button" class="bg-none border-none text-2xl cursor-pointer"
       >☰</button
