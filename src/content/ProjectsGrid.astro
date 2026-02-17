@@ -1,0 +1,102 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  projects: CollectionEntry<"projects">[];
+}
+
+const { projects } = Astro.props as Props;
+---
+
+<style>
+  .rotate-svg {
+    transform: rotate(180deg);
+    transition:
+      transform 0.3s ease,
+      fill 0.3s ease;
+      background 0.3s text-emphasis-style: 
+  }
+
+  button:hover .rotate-svg {
+    transform: rotate(90deg);
+  }
+</style>
+
+<section class=" prose">
+  <div class="flex flex-col decoration-gray-900 mx-2">
+    {
+      projects.slice(0, 5).map((p) => (
+        <a
+          href={`/projects/${p.slug}`}
+          aria-label={`View project ${p.data.title}`}
+          class="group no-underline text-black hover:text-black py-0.5"
+        >
+          <div class="flex w-full gap-4 sm:gap-6 lg:gap-8">
+            <div class="aspect-[0.76] w-32 sm:w-48 md:w-64 lg:w-72 shrink-0 overflow-hidden">
+              <Image
+                src={p.data.thumbnail}
+                alt={p.data.title}
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+
+            <div class="flex flex-col flex-1">
+              <div class="flex flex-col">
+                <h2 class="font-bold leading-tight text-xl sm:text-2xl md:text-3xl lg:text-5xl xl:text-6xl"
+                  style="font-family: 'Space Grotesk', sans-serif;">
+                  {p.data.title}
+                </h2>
+
+                <div class="hidden lg:flex flex-col gap-1 mt-4">
+                  <h3 class="text-gray-600 text-lg lg:text-2xl font-medium">
+                    {p.data.company}
+                  </h3>
+                  <h3 class="text-gray-600 text-lg lg:text-2xl font-medium">
+                    {p.data.location}
+                  </h3>
+                  <h3 class="text-gray-600 text-lg lg:text-1xl">{p.data.date}</h3>
+                </div>
+              </div>
+
+              <div class="flex justify-between items-center flex-1 mt-4 sm:mt-6">
+                <div class="flex flex-col gap-1 lg:hidden">
+                  <h3 class="text-gray-600 text-lg md:text-xl font-medium">
+                    {p.data.company}
+                  </h3>
+                  <h3 class="text-gray-600 text-lg md:text-xl font-medium" >
+                    {p.data.location}
+                  </h3>
+                  <h3 class="text-gray-600 text-lg md:text-lg hidden sm:block">
+                    {p.data.date}
+                  </h3>
+                </div>
+
+                <div class="hidden lg:block flex-1 " />
+
+                <div class ="flex justify-end lg:justify-around flex-1 h-fit lg:h-full lg:w-lg">
+                  <button
+                    class=" aspect-square h-12 w-12 sm:h-16 sm:w-16 lg:h-20 lg:w-20 shrink-0 rounded-full border-2 border-black bg-white flex items-center 
+                    hover:fill-white justify-center transition-colors duration-300 hover:bg-black"
+                    aria-label={`View project ${p.data.title}`}
+                  >
+                    <svg
+                      class="rotate-svg  w-2/3 h-2/3 hover:fill-white"
+                      viewBox="0 0 200 200"
+                      xmlns="http://www.w3.org/2000/svg"
+                                   >
+                      <path
+                        d="m65 77.35 5.892 5.892 25.3-25.292v100.717h8.333V57.95l25.292 25.292 5.891-5.892L100.358 42 65 77.35Z"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </button>
+                </div>  
+              </div>
+            </div>
+          </div>
+        </a>
+      ))
+    }
+  </div>
+</section>
