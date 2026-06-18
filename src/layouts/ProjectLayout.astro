@@ -16,9 +16,21 @@ const modules = import.meta.glob<{ default: ImageMetadata }>(
   { eager: true },
 );
 
+// if there is a video folder, load the video as well
+const videoModules = import.meta.glob<{ default: string }>(
+  "/src/assets/projects/*/video/*",
+  { eager: true },
+);
+
 const images = Object.entries(modules)
   .filter(([path]) =>
     path.includes(`/projects/${project.data.projectFolder}/gallery/`),
+  )
+  .map(([, m]) => m.default);
+
+const videos = Object.entries(videoModules)
+  .filter(([path]) =>
+    path.includes(`/projects/${project.data.projectFolder}/video/`),
   )
   .map(([, m]) => m.default);
 ---
@@ -40,6 +52,31 @@ const images = Object.entries(modules)
     </a>
     <!-- Summary -->
     {project.data.summary && <p>{project.data.summary}</p>}
+
+    <!-- Videos -->
+    {
+      videos.length > 0 && (
+        <div class="pt-8">
+          <div class="space-y-6">
+            {videos.map((video) => (
+              <figure class="overflow-hidden rounded-2xl bg-black shadow-sm ring-1 ring-black/5">
+                <div class="mx-auto w-full max-w-4xl">
+                  <video
+                    controls
+                    playsinline
+                    autoplay
+                    muted
+                    preload="metadata"
+                    class="block h-auto max-h-[75vh] w-full rounded-2xl object-cover"
+                    src={video}
+                  />
+                </div>
+              </figure>
+            ))}
+          </div>
+        </div>
+      )
+    }
 
     <!-- Gallery Grid with responsive masonry layout and row separators -->
     <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 pt-8 space-y-4">

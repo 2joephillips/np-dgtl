@@ -26,7 +26,7 @@ const { projects } = Astro.props as Props;
 <section class=" prose">
   <div class="flex flex-col decoration-gray-900 mx-2">
     {
-      projects.slice(0, 5).map((p) => (
+      projects.map((p) => (
         <a
           href={`/projects/${p.slug}`}
           aria-label={`View project ${p.data.title}`}

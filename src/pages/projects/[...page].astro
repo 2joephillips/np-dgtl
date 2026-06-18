@@ -1,0 +1,98 @@
+---
+import { getCollection } from "astro:content";
+import ProjectsGrid from "../../components/ProjectsGrid.astro";
+import Layout from "../../layouts/Layout.astro";
+import arrow from "../../assets/icons/arrow.svg";
+
+export async function getStaticPaths({ paginate }) {
+  const projects = await getCollection("projects");
+  const orderedProjects = [...projects].sort((a, b) => {
+    return b.data.order - a.data.order;
+  });
+
+  return paginate(orderedProjects, { pageSize: 5 });
+}
+
+const { page } = Astro.props;
+const pageNumbers = Array.from(
+  { length: page.lastPage },
+  (_, index) => index + 1,
+);
+---
+
+<Layout>
+  <div class="m-2 flex items-center justify-between">
+    <div class="flex items-center">
+      <a href="/">
+        <img
+          src={arrow.src}
+          alt="Back Arrow"
+          class="rotate-180 aspect-square w-10"
+        />
+      </a>
+      <h1 class="text-4xl font-bold uppercase text-left my-1 mx-2">INDEX</h1>
+    </div>
+
+    <div class="flex items-center gap-1.5 sm:gap-2">
+      {
+        pageNumbers.map((pageNumber) => (
+          <a
+            href={pageNumber === 1 ? "/projects/" : `/projects/${pageNumber}`}
+            class:list={[
+              "inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs transition-colors duration-300 hover:bg-black hover:text-white",
+              pageNumber === page.currentPage
+                ? "border-black bg-black text-white"
+                : "border-black text-black",
+            ]}
+            style="font-family: 'Space Grotesk', sans-serif;"
+          >
+            {pageNumber}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+
+  <ProjectsGrid projects={page.data} />
+
+  <div class="flex items-center justify-center gap-1.5 sm:gap-2 pb-10 pt-8">
+    <a
+      href={page.url.prev || "#"}
+      class:list={[
+        "inline-flex h-10 min-w-16 items-center justify-center rounded-full border border-black px-3 text-[0.65rem] uppercase tracking-[0.24em] transition-colors duration-300 hover:bg-black hover:text-white",
+        !page.url.prev && "pointer-events-none opacity-50",
+      ]}
+      style="font-family: 'Space Grotesk', sans-serif;"
+    >
+      Prev
+    </a>
+
+    {
+      pageNumbers.map((pageNumber) => (
+        <a
+          href={pageNumber === 1 ? "/projects/" : `/projects/${pageNumber}`}
+          class:list={[
+            "inline-flex h-10 w-10 items-center justify-center rounded-full border text-sm transition-colors duration-300 hover:bg-black hover:text-white",
+            pageNumber === page.currentPage
+              ? "border-black bg-black text-white"
+              : "border-black text-black",
+          ]}
+          style="font-family: 'Space Grotesk', sans-serif;"
+        >
+          {pageNumber}
+        </a>
+      ))
+    }
+
+    <a
+      href={page.url.next || "#"}
+      class:list={[
+        "inline-flex h-10 min-w-16 items-center justify-center rounded-full border border-black px-3 text-[0.65rem] uppercase tracking-[0.24em] transition-colors duration-300 hover:bg-black hover:text-white",
+        !page.url.next && "pointer-events-none opacity-50",
+      ]}
+      style="font-family: 'Space Grotesk', sans-serif;"
+    >
+      Next
+    </a>
+  </div>
+</Layout>
