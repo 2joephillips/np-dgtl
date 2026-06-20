@@ -5,5 +5,5 @@ location: "Columbus, GA"
 company: "Aiden & Emily"
 thumbnail: "../../assets/projects/class-of-2024/cover_image/IMG_6657.jpg"
 projectFolder: "class-of-2024"  
-order: 5
+order: 1
 ---

@@ -5,5 +5,5 @@ location: "Durham, NC"
 company: ""
 thumbnail: "../../assets/projects/class-of-2026/cover_image/729A1972.jpg"
 projectFolder: "class-of-2026"  
-order: 7
+order: 6
 ---
